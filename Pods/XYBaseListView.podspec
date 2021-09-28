@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "XYBaseListView"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "A wrapper about UITableView and UICollectionView"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "git@github.com:ygg29/XYBaseListView.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/ygg29/XYBaseListView.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
