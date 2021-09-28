@@ -1,0 +1,16 @@
+PODS:
+  - XYBaseCollectionView (0.0.1)
+
+DEPENDENCIES:
+  - XYBaseCollectionView (from `./../Pods`)
+
+EXTERNAL SOURCES:
+  XYBaseCollectionView:
+    :path: "./../Pods"
+
+SPEC CHECKSUMS:
+  XYBaseCollectionView: db98610056c78857a8578b763077dae9ce4a305b
+
+PODFILE CHECKSUM: d19490080f29c7aea64ee9ae1435f593d8cfe076
+
+COCOAPODS: 1.11.2

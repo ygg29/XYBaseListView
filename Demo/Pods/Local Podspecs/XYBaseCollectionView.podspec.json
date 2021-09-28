@@ -1,0 +1,25 @@
+{
+  "name": "XYBaseCollectionView",
+  "version": "0.0.1",
+  "summary": "泛型封装的 collectionView",
+  "description": "泛型封装的 collectionView",
+  "homepage": "https://github.com/ygg29/XYCollectionView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "肖友": "xiaoyou29@163.com"
+  },
+  "source": {
+    "git": "",
+    "tag": "0.0.1"
+  },
+  "source_files": "XYBaseCollectionView/*",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
