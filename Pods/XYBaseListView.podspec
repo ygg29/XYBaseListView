@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "XYBaseListView"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.6"
   spec.summary      = "A wrapper about UITableView and UICollectionView"
 
   # This description is used to generate tags and improve search results.
@@ -91,7 +91,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "XYBaseListView/*"
+  spec.source_files  = "XYBaseListView"
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
 
