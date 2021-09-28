@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "XYBaseListView"
-  spec.version      = "0.0.7"
-  spec.summary      = "A wrapper about UITableView and UICollectionView"
+  spec.version      = "0.0.8"
+  spec.summary      = "一个列表视图的封装库"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-                    一个列表视图的封装库
+                    A wrapper about UITableView and UICollectionView
                    DESC
 
   spec.homepage     = "https://github.com/ygg29/XYBaseListView"
@@ -40,7 +40,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.license      = "MIT (example)"
-  spec.license      = { :type => "MIT", :file => "Pods/LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -66,6 +66,7 @@ Pod::Spec.new do |spec|
 
   # spec.platform     = :ios
   spec.platform     = :ios, "11.0"
+  spec.swift_version = '5.0'
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -91,7 +92,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Pods/XYBaseListView/Classes/*"
+  spec.source_files  = "XYBaseListView/Classes/*"
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
 
