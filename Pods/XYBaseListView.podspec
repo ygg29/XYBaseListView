@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "XYBaseListView"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.1"
   spec.summary      = "A wrapper about UITableView and UICollectionView"
 
   # This description is used to generate tags and improve search results.
