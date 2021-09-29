@@ -1,16 +1,23 @@
 PODS:
-  - XYBaseCollectionView (0.0.1)
+  - Kingfisher (6.3.1)
+  - XYBaseListView (0.0.8)
 
 DEPENDENCIES:
-  - XYBaseCollectionView (from `./../Pods`)
+  - Kingfisher
+  - XYBaseListView (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
 
 EXTERNAL SOURCES:
-  XYBaseCollectionView:
-    :path: "./../Pods"
+  XYBaseListView:
+    :path: "../"
 
 SPEC CHECKSUMS:
-  XYBaseCollectionView: db98610056c78857a8578b763077dae9ce4a305b
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  XYBaseListView: 2bd9e6c7aed4560e7ea7256929397b8c5d4ec282
 
-PODFILE CHECKSUM: d19490080f29c7aea64ee9ae1435f593d8cfe076
+PODFILE CHECKSUM: 00a3e86d36340f0fe6b0b70fe68ba500644c421d
 
 COCOAPODS: 1.11.2

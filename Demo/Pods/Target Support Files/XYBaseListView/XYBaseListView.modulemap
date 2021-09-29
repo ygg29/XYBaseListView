@@ -1,0 +1,6 @@
+framework module XYBaseListView {
+  umbrella header "XYBaseListView-umbrella.h"
+
+  export *
+  module * { export * }
+}

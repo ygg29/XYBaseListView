@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "XYBaseListView"
-  spec.version      = "0.0.8"
+  spec.version      = "0.1.0"
   spec.summary      = "一个列表视图的封装库"
 
   # This description is used to generate tags and improve search results.
@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "XYBaseListView/Classes/*"
+  spec.source_files  = "XYBaseListView/Classes/*.swift", "XYBaseListView/Classes/**/*"
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
 

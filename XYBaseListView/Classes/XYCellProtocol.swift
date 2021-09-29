@@ -8,26 +8,14 @@
 
 import UIKit
 
+enum XYListStyle{
+    case plain, group
+}
 
-
-protocol XYBaseCellProtocol {
+public protocol XYBaseCellProtocol {
     associatedtype U
     
     func updateCellData(_ model: U)
-}
-
-protocol XYBaseCellModelProtocol: NSObjectProtocol {
-    var cellIdentifierOP: String? {get set}
-    var cellSizeOP: CGSize? {get set}
-    var cellIndexPathOP: IndexPath? {get set}
-}
-
-extension XYBaseCellProtocol where Self: UICollectionViewCell {
-    static var cellSize: CGSize {get{return CGSize.zero}}
-}
-
-extension XYBaseCellProtocol where Self: UITableViewCell {
-    static var cellHeight: CGSize {get{return CGSize.zero}}
 }
 
 //extension GPBMessage: XYBaseCellModelProtocol{
@@ -62,9 +50,9 @@ extension XYBaseCellProtocol where Self: UITableViewCell {
 //    }
 //}
 
-fileprivate var CellIdentifierOPStr = "cellIdentifierOPStr"
-fileprivate var CellSizeOPStr = "cellSizeOPStr"
-fileprivate var CellIndexPathOPStr = "cellIndexPathOPStr"
+//fileprivate var CellIdentifierOPStr = "cellIdentifierOPStr"
+//fileprivate var CellSizeOPStr = "cellSizeOPStr"
+//fileprivate var CellIndexPathOPStr = "cellIndexPathOPStr"
 
 
 

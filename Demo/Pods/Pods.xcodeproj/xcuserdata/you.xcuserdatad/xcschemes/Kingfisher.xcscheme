@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "33B89E8DDFAA3E2C0167A2ADB57F1F66"
-               BuildableName = "XYBaseCollectionView.framework"
-               BlueprintName = "XYBaseCollectionView"
+               BlueprintIdentifier = "E8022D22FAA6690B5E1C379C1BCE1491"
+               BuildableName = "Kingfisher.framework"
+               BlueprintName = "Kingfisher"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

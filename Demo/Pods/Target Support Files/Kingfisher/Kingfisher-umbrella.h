@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double XYBaseCollectionViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char XYBaseCollectionViewVersionString[];
+FOUNDATION_EXPORT double KingfisherVersionNumber;
+FOUNDATION_EXPORT const unsigned char KingfisherVersionString[];
 
