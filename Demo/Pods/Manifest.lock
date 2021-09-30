@@ -1,6 +1,6 @@
 PODS:
   - Kingfisher (6.3.1)
-  - XYBaseListView (0.0.8)
+  - XYBaseListView (0.1.0)
 
 DEPENDENCIES:
   - Kingfisher
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
-  XYBaseListView: 2bd9e6c7aed4560e7ea7256929397b8c5d4ec282
+  XYBaseListView: 7c8ebc22a496ec4a320e6f308c88fd46e0a17ab3
 
 PODFILE CHECKSUM: 00a3e86d36340f0fe6b0b70fe68ba500644c421d
 

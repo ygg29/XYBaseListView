@@ -8,35 +8,37 @@
 
 import UIKit
 
-typealias DidSelectedCallBack = (_ indexPath: IndexPath,_ dataModel:XYBaseCellModelProtocol?) -> Void
-typealias DidScrollCallBack = (_ scrollView: UIScrollView) -> Void
-typealias LoadDataCompeleteCallBack = () -> Void
+public typealias DidSelectedCallBack = (_ indexPath: IndexPath,_ dataModel:XYBaseCellModel?) -> Void
+public typealias DidScrollCallBack = (_ scrollView: UIScrollView) -> Void
+public typealias LoadDataCompeleteCallBack = () -> Void
 
-typealias EnableMulScrollCallBack = (_ view: UIView?,_ otherView: UIView?) -> Bool
+public typealias EnableMulScrollCallBack = (_ view: UIView?,_ otherView: UIView?) -> Bool
 
-typealias DataSourceSectionCallBack = () -> Int
-typealias DataSourceCountCallBack = (_ section: Int) -> Int
-typealias DataSourceModelCallBack = (_ indexPath: IndexPath) -> XYBaseCellModelProtocol?
-typealias DataSourceHeaderFooterCallBack = (_ section:Int) -> XYBaseCellModelProtocol?
+public typealias DataSourceSectionCallBack = () -> Int
+public typealias DataSourceCountCallBack = (_ section: Int) -> Int
+public typealias DataSourceModelCallBack = (_ indexPath: IndexPath) -> XYBaseCellModel?
+public typealias DataSourceHeaderFooterCallBack = (_ section:Int) -> XYBaseCellModel?
 
 //
-class XYBaseCollectionView: UICollectionView {
-    public var pager = Pager()
+open class XYBaseCollectionView: UICollectionView {
+    public var pager = XYPager()
     public var didScrollCallBack: DidScrollCallBack?
     public var didScrollWillBeginDraggingCallBack: DidScrollCallBack?
     public var didScrollDidEndDeceleratingCallBack: DidScrollCallBack?
     public var didSelectedCallBack: DidSelectedCallBack?
+    var listStyle: XYListStyle = .plain
     
     
-    
-    public var dataSourceArr: [XYBaseCellModelProtocol] = [] {
+    public var dataSourceArr: [XYBaseCollectionCellModel] = [] {
         didSet{
+            listStyle = .plain
             reloadData()
         }
     }
     // 分组数据源 二维数组
-    public var dataSourceArrGroup: [[XYBaseCellModelProtocol]] = [[]] {
+    public var dataSourceArrGroup: [XYBaseCollectionGroupCellModel] = [] {
         didSet{
+            listStyle = .group
             reloadData()
         }
     }
@@ -44,7 +46,7 @@ class XYBaseCollectionView: UICollectionView {
     fileprivate var baseDelegate: XYBaseCollectionViewDelegate!
     fileprivate var baseDataSource: XYBaseCollectionViewDataSource!
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
         self.contentInsetAdjustmentBehavior = .never
@@ -53,7 +55,7 @@ class XYBaseCollectionView: UICollectionView {
         self.dataSource = baseDataSource
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -99,42 +101,38 @@ class XYBaseCollectionView: UICollectionView {
             }
         }
         
+        baseDelegate.dataSourceHeaderModel = {[weak self](section) in
+
+            guard let strongSelf = self else{return nil}
+
+            if section < strongSelf.dataSourceArrGroup.count{
+                return strongSelf.dataSourceArrGroup[section].headerViewModel
+            }else{
+                return nil
+            }
+
+        }
         
+        baseDelegate.dataSourceFooterModel = {[weak self](section) in
+
+            guard let strongSelf = self else{return nil}
+
+            if section < strongSelf.dataSourceArrGroup.count{
+                return strongSelf.dataSourceArrGroup[section].footerViewModel
+            }else{
+                return nil
+            }
+        }
         
         baseDelegate.dataSourceModel = {[weak self](indexpath) in
             
             guard let self = self else{return nil}
-            if self.dataSourceArr.count > 0 {
+            if self.listStyle == .plain {
                 return self.dataSourceArr[indexpath.row]
-            }else if self.dataSourceArrGroup.count > 0 {
-                return self .dataSourceArrGroup[indexpath.section][indexpath.item]
+            }else {
+                return self.dataSourceArrGroup[indexpath.section].dataArr[indexpath.row]
             }
-            return nil
         }
-        
-//        baseDelegate.dataSourceHeaderModel = {[weak self](section) in
-//
-//            guard let strongSelf = self else{return nil}
-//
-//            if section < strongSelf.headerSourceArr.count{
-//                return strongSelf.headerSourceArr[section]
-//            }else{
-//                return nil
-//            }
-//
-//        }
-        
-//        baseDelegate.dataSourceFooterModel = {[weak self](section) in
-//
-//            guard let strongSelf = self else{return nil}
-//
-//            if section < strongSelf.footerSourceArr.count{
-//                return strongSelf.footerSourceArr[section]
-//            }else{
-//                return nil
-//            }
-//
-//        }
         
         baseDelegate.didSelectedCallBack = {[weak self](idxPath, model) in
             guard let strongSelf = self,let callBack = strongSelf.didSelectedCallBack else{ return }
@@ -145,33 +143,52 @@ class XYBaseCollectionView: UICollectionView {
         
         baseDataSource.dataSourceSection = { [weak self] in
             guard let self = self else{return 0}
-            if self.dataSourceArr.count > 0 {
+            if self.listStyle == .plain {
                 return 1
-            }else if self.dataSourceArrGroup.count > 0 {
+            }else {
                 return self.dataSourceArrGroup.count
             }
-            return 0
         }
         
         baseDataSource.dataSourceModel = {[weak self](indexpath) in
             
             guard let self = self else{return nil}
-            if self.dataSourceArr.count > 0 {
+            if self.listStyle == .plain {
                 return self.dataSourceArr[indexpath.row]
-            }else if self.dataSourceArrGroup.count > 0 {
-                return self .dataSourceArrGroup[indexpath.section][indexpath.item]
+            }else {
+                return self.dataSourceArrGroup[indexpath.section].dataArr[indexpath.row]
             }
-            return nil
         }
         
-        baseDataSource.dataSourceCount = {[weak self] section in
+        baseDataSource.dataSourceCount = {[weak self] (section) in
             guard let self = self else{return 0}
-            if self.dataSourceArr.count > 0 {
+            if self.listStyle == .plain{
                 return self.dataSourceArr.count
-            }else if self.dataSourceArrGroup.count > 0 {
-                return self .dataSourceArrGroup[section].count
+            } else {
+                return self .dataSourceArrGroup[section].dataArr.count
             }
-            return 0
+        }
+        baseDataSource.dataSourceHeaderModel = {[weak self](section) in
+
+            guard let strongSelf = self else{return nil}
+
+            if section < strongSelf.dataSourceArrGroup.count{
+                return strongSelf.dataSourceArrGroup[section].headerViewModel
+            }else{
+                return nil
+            }
+
+        }
+        
+        baseDataSource.dataSourceFooterModel = {[weak self](section) in
+
+            guard let strongSelf = self else{return nil}
+
+            if section < strongSelf.dataSourceArrGroup.count{
+                return strongSelf.dataSourceArrGroup[section].footerViewModel
+            }else{
+                return nil
+            }
         }
         
         self.delegate = baseDelegate
@@ -191,7 +208,7 @@ class XYBaseCollectionView: UICollectionView {
 
 
 // 分页器
-public struct Pager {
+public struct XYPager {
     public var offset: Int = 0
     public var limit: Int = 20
     

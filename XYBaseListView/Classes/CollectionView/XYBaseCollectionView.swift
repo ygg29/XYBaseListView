@@ -130,7 +130,7 @@ open class XYBaseCollectionView: UICollectionView {
             if self.listStyle == .plain {
                 return self.dataSourceArr[indexpath.row]
             }else {
-                return self.dataSourceArrGroup[indexpath.section].dataArr[indexpath.row]
+                return self.dataSourceArrGroup[indexpath.section].dataSourceArr[indexpath.row]
             }
         }
         
@@ -156,7 +156,7 @@ open class XYBaseCollectionView: UICollectionView {
             if self.listStyle == .plain {
                 return self.dataSourceArr[indexpath.row]
             }else {
-                return self.dataSourceArrGroup[indexpath.section].dataArr[indexpath.row]
+                return self.dataSourceArrGroup[indexpath.section].dataSourceArr[indexpath.row]
             }
         }
         
@@ -165,7 +165,7 @@ open class XYBaseCollectionView: UICollectionView {
             if self.listStyle == .plain{
                 return self.dataSourceArr.count
             } else {
-                return self .dataSourceArrGroup[section].dataArr.count
+                return self .dataSourceArrGroup[section].dataSourceArr.count
             }
         }
         baseDataSource.dataSourceHeaderModel = {[weak self](section) in

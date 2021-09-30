@@ -63,11 +63,11 @@ extension CollectionViewVC {
         
         group1.headerViewModel = header1
         group1.footerViewModel = footer1
-        group1.dataArr = getList()
+        group1.dataSourceArr = getList()
         
         group2.headerViewModel = header2
         group2.footerViewModel = footer2
-        group2.dataArr = getList2()
+        group2.dataSourceArr = getList2()
         
         collectionView.dataSourceArrGroup = [group1, group2]
         
@@ -200,5 +200,5 @@ class BaseCollectionGroupModel:NSObject, XYBaseCollectionGroupCellModel{
     
     var footerViewModel: XYBaseReusableViewModel?
     
-    var dataArr: [XYBaseCollectionCellModel] = []
+    var dataSourceArr: [XYBaseCollectionCellModel] = []
 }

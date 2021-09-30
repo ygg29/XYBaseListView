@@ -13,8 +13,6 @@
 		89BAAEE726E114F600995678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BAAEE526E114F600995678 /* Main.storyboard */; };
 		89BAAEE926E114FA00995678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BAAEE826E114FA00995678 /* Assets.xcassets */; };
 		89BAAEEC26E114FA00995678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BAAEEA26E114FA00995678 /* LaunchScreen.storyboard */; };
-		89BAAEF726E114FA00995678 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BAAEF626E114FA00995678 /* DemoTests.swift */; };
-		89BAAF0226E114FA00995678 /* DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BAAF0126E114FA00995678 /* DemoUITests.swift */; };
 		89BAAF1026E1256D00995678 /* CollectionViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BAAF0F26E1256D00995678 /* CollectionViewVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,11 +43,7 @@
 		89BAAEEB26E114FA00995678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89BAAEED26E114FA00995678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BAAEF226E114FA00995678 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89BAAEF626E114FA00995678 /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
-		89BAAEF826E114FA00995678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BAAEFD26E114FA00995678 /* DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89BAAF0126E114FA00995678 /* DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoUITests.swift; sourceTree = "<group>"; };
-		89BAAF0326E114FA00995678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BAAF0F26E1256D00995678 /* CollectionViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewVC.swift; sourceTree = "<group>"; };
 		BFDA9BB51AB80767843F1799 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F91968AD4C82C4602961E2 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,8 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				89BAAEDE26E114F600995678 /* Demo */,
-				89BAAEF526E114FA00995678 /* DemoTests */,
-				89BAAF0026E114FA00995678 /* DemoUITests */,
 				89BAAEDD26E114F600995678 /* Products */,
 				4FB7CBDFC054F7ED1DB4D155 /* Pods */,
 				0D463920A40EEDE9D9B1004F /* Frameworks */,
@@ -132,24 +124,6 @@
 				89BAAEED26E114FA00995678 /* Info.plist */,
 			);
 			path = Demo;
-			sourceTree = "<group>";
-		};
-		89BAAEF526E114FA00995678 /* DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				89BAAEF626E114FA00995678 /* DemoTests.swift */,
-				89BAAEF826E114FA00995678 /* Info.plist */,
-			);
-			path = DemoTests;
-			sourceTree = "<group>";
-		};
-		89BAAF0026E114FA00995678 /* DemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				89BAAF0126E114FA00995678 /* DemoUITests.swift */,
-				89BAAF0326E114FA00995678 /* Info.plist */,
-			);
-			path = DemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +191,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					89BAAEDB26E114F600995678 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -336,7 +310,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89BAAEF726E114FA00995678 /* DemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89BAAF0226E114FA00995678 /* DemoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -489,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -508,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 926YYH3C3W;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,7 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 926YYH3C3W;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
