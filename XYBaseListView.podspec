@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "XYBaseListView"
-  spec.version      = "0.1.0"
+  spec.version      = "0.2.0"
   spec.summary      = "一个列表视图的封装库"
 
   # This description is used to generate tags and improve search results.
