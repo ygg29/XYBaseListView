@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         view.addSubview(collectionViewBtn)
+        view.addSubview(TableViewViewBtn)
     }
     
     lazy var collectionViewBtn: UIButton = {
@@ -23,11 +24,24 @@ class ViewController: UIViewController {
         o.setTitle("collectionView", for: .normal)
         o.addTarget(self, action: #selector(pushCollectionView), for: .touchUpInside)
         return o }()
+    lazy var TableViewViewBtn: UIButton = {
+        let o = UIButton(type: .system)
+        o.frame = CGRect(x: 50, y: 200, width: 120, height: 60)
+        o.setTitle("TableView", for: .normal)
+        o.addTarget(self, action: #selector(pushTableView), for: .touchUpInside)
+        return o }()
     
     @objc func pushCollectionView() {
-        let o = CollectionViewVC()
-        self.navigationController?.pushViewController(o, animated: true)
+            let o = CollectionViewVC()
+            present(o, animated: true, completion: nil)
+
     }
+    
+    @objc func pushTableView() {
+        let o = TableViewVC()
+        present(o, animated: true, completion: nil)
+    }
+    
 }
 
 

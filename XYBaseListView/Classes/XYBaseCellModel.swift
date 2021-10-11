@@ -17,10 +17,6 @@ public protocol XYBaseCellModel: NSObjectProtocol{
 public protocol XYBaseCollectionCellModel: XYBaseCellModel{
     var xy_cellSize: CGSize?{get set}
 }
-
-public protocol XYBaseTableCellModel: XYBaseCellModel{
-    var xy_cellHeight: CGFloat?{get set}
-}
 // resuable
 public protocol XYBaseReusableViewModel: XYBaseCellModel{
     var xy_viewSize: CGSize?{get set}
@@ -31,4 +27,19 @@ public protocol XYBaseCollectionGroupCellModel: NSObjectProtocol {
     var headerViewModel: XYBaseReusableViewModel?{get set}
     var footerViewModel: XYBaseReusableViewModel?{get set}
     var dataSourceArr: [XYBaseCollectionCellModel]{get set}
+}
+
+
+public protocol XYBaseTableCellModel: XYBaseCellModel{
+    var xy_cellHeight: CGFloat?{get set}
+}
+// headerFooter
+public protocol XYBaseTableHeaderFooterViewModel: XYBaseCellModel{
+    var xy_viewHeight: CGFloat?{get set}
+}
+
+public protocol XYBaseTableGroupCellModel: NSObjectProtocol {
+    var headerViewModel: XYBaseTableHeaderFooterViewModel?{get set}
+    var footerViewModel: XYBaseTableHeaderFooterViewModel?{get set}
+    var dataSourceArr: [XYBaseTableCellModel]{get set}
 }

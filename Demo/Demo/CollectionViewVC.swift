@@ -13,6 +13,7 @@ class CollectionViewVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         setupUI()
         creatData()
         
@@ -22,7 +23,7 @@ class CollectionViewVC: UIViewController {
     }
     lazy var collectionView: XYBaseCollectionView = {
         let flow = UICollectionViewFlowLayout()
-        let o = XYBaseCollectionView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 100), collectionViewLayout: flow)
+        let o = XYBaseCollectionView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 100), collectionViewLayout: flow, style: .grouped)
         o.alwaysBounceVertical = true
         o.register(CollectionImgCell.classForCoder(), forCellWithReuseIdentifier: CollectionImgCell.cellIdentifier)
         o.register(CollectionTxtCell.classForCoder(), forCellWithReuseIdentifier: CollectionTxtCell.cellIdentifier)
@@ -30,11 +31,15 @@ class CollectionViewVC: UIViewController {
         o.register(CollectionFooterView.classForCoder(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CollectionFooterView.cellIdentifier)
         o.didSelectedCallBack = {idx, m in
             print("点击 cell\(idx)\(m)")
+            let o = CollectionViewVC()
+            self.presentTransition(o, animation: .fromBottom, vcFrame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-100))
         }
         o.configDataSource()
         return o }()
     
 }
+
+//MARK: - Fake Data
 extension CollectionViewVC {
     func creatData() {
         

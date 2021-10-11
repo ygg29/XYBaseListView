@@ -8,8 +8,9 @@
 
 import UIKit
 
-enum XYListStyle{
-    case plain, group
+// 列表样式
+public enum XYListStyle{
+    case plain, grouped
 }
 
 public protocol XYBaseCellProtocol {
@@ -17,6 +18,37 @@ public protocol XYBaseCellProtocol {
     
     func updateCellData(_ model: U)
 }
+
+public typealias DidSelectedCallBack = (_ indexPath: IndexPath,_ dataModel:XYBaseCellModel?) -> Void
+public typealias DidScrollCallBack = (_ scrollView: UIScrollView) -> Void
+public typealias LoadDataCompeleteCallBack = () -> Void
+
+public typealias EnableMulScrollCallBack = (_ view: UIView?,_ otherView: UIView?) -> Bool
+
+public typealias DataSourceSectionCallBack = () -> Int
+public typealias DataSourceCountCallBack = (_ section: Int) -> Int
+public typealias DataSourceModelCallBack = (_ indexPath: IndexPath) -> XYBaseCellModel?
+public typealias DataSourceHeaderFooterCallBack = (_ section:Int) -> XYBaseCellModel?
+
+// 分页器
+public struct XYPager {
+    public var offset: Int = 0
+    public var limit: Int = 20
+    
+    public var total: Int {
+        return offset * limit
+    }
+    public mutating func increase() {
+        offset += 1
+    }
+    // 重置
+    public mutating func reset() {
+        offset = 0
+    }
+}
+
+
+
 
 //extension GPBMessage: XYBaseCellModelProtocol{
 //    var cellIndexPathOP: IndexPath? {
