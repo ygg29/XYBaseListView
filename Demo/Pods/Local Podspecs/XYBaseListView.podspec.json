@@ -1,6 +1,6 @@
 {
   "name": "XYBaseListView",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "一个列表视图的封装库",
   "description": "A wrapper about UITableView and UICollectionView",
   "homepage": "https://github.com/ygg29/XYBaseListView",
@@ -17,7 +17,7 @@
   "swift_versions": "5.0",
   "source": {
     "git": "https://github.com/ygg29/XYBaseListView.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "source_files": [
     "XYBaseListView/Classes/*.swift",

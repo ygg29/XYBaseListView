@@ -12,17 +12,21 @@ class TableViewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .yellow
         setupUI()
         creatData()
         
     }
     func setupUI(){
         view.addSubview(tableView)
+        let hv = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        hv.backgroundColor = .green
+        tableView.tableHeaderView = hv
     }
     lazy var tableView: XYBaseTableView = {
-        let o = XYBaseTableView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 100), style: .grouped)
+        let o = XYBaseTableView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 100), listStyle: .grouping)
         o.alwaysBounceVertical = true
+        o.backgroundColor = .blue
         o.register(TableViewImgCell.classForCoder(), forCellReuseIdentifier: TableViewImgCell.cellIdentifier)
         o.register(TableViewTxtCell.classForCoder(), forCellReuseIdentifier: TableViewTxtCell.cellIdentifier)
         o.register(TableViewHeaderView.classForCoder(), forHeaderFooterViewReuseIdentifier: TableViewHeaderView.cellIdentifier)
@@ -32,7 +36,10 @@ class TableViewVC: UIViewController {
         }
         o.configDataSource()
         return o }()
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("end")
+    }
 }
 
 extension TableViewVC{
@@ -43,7 +50,7 @@ extension TableViewVC{
         
         let header1 = HeaderFooterModel()
         header1.xy_cellIdentifier = TableViewHeaderView.cellIdentifier
-        header1.xy_viewHeight = 40
+        header1.xy_viewHeight = 80
         header1.color = .red
         
         let footer1 = HeaderFooterModel()
@@ -62,11 +69,11 @@ extension TableViewVC{
         footer2.color = .green
         
         group1.headerViewModel = header1
-        group1.footerViewModel = footer1
+//        group1.footerViewModel = footer1
         group1.dataSourceArr = getList()
         
         group2.headerViewModel = header2
-        group2.footerViewModel = footer2
+//        group2.footerViewModel = footer2
         group2.dataSourceArr = getList2()
         
         tableView.dataSourceArrGroup = [group1, group2]
@@ -74,11 +81,11 @@ extension TableViewVC{
     }
     func getList() -> [BaseTableViewCellModel]{
         let img = TableViewImgModel("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F18%2F08%2F24%2F05dbcc82c8d3bd356e57436be0922357.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1635496137&t=42285c4b702af3c2117af00c56aa290a")
-        img.xy_cellHeight = 200
+        img.xy_cellHeight = 100
         img.xy_cellIdentifier = TableViewImgCell.cellIdentifier
         
         let txt = TableViewTextModel("测试测试")
-        txt.xy_cellHeight = 200
+        txt.xy_cellHeight = 50
         txt.xy_cellIdentifier = TableViewTxtCell.cellIdentifier
         
         let arr = [

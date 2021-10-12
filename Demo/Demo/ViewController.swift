@@ -33,13 +33,13 @@ class ViewController: UIViewController {
     
     @objc func pushCollectionView() {
             let o = CollectionViewVC()
-            present(o, animated: true, completion: nil)
+        self.navigationController?.pushViewController(o, animated: true)
 
     }
     
     @objc func pushTableView() {
         let o = TableViewVC()
-        present(o, animated: true, completion: nil)
+        self.navigationController?.pushViewController(o, animated: true)
     }
     
 }

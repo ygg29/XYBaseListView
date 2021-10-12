@@ -23,7 +23,7 @@ class CollectionViewVC: UIViewController {
     }
     lazy var collectionView: XYBaseCollectionView = {
         let flow = UICollectionViewFlowLayout()
-        let o = XYBaseCollectionView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 100), collectionViewLayout: flow, style: .grouped)
+        let o = XYBaseCollectionView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 100), collectionViewLayout: flow, style: .grouping)
         o.alwaysBounceVertical = true
         o.register(CollectionImgCell.classForCoder(), forCellWithReuseIdentifier: CollectionImgCell.cellIdentifier)
         o.register(CollectionTxtCell.classForCoder(), forCellWithReuseIdentifier: CollectionTxtCell.cellIdentifier)

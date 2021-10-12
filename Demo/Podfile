@@ -6,7 +6,7 @@ target 'Demo' do
   use_frameworks!
 
   # Pods for Demo
-#  pod 'XYBaseListView', :git => 'git@github.com:ygg29/XYBaseListView.git'
+#  pod 'XYBaseListView',:tag=>"0.2.0", :git => 'git@github.com:ygg29/XYBaseListView.git'
 pod 'XYBaseListView', :path => '../'
 pod 'Kingfisher'
 end
